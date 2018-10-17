@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name"> </string>
+
+    <!-- VALUES FOR THE LOGIN PAGE AND THE SIGN UP PAGE -->
+    <string name="username">What should we call you ? </string>
+    <string name="password">Password </string>
+    <string name="email">Email </string>
+    <string name="signup"> JOIN US </string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+
+    <!-- FOR DRAWER LAYOUT -->
+    <string name="open">OPEN </string>
+    <string name="close">CLOSE</string>
+</resources>
