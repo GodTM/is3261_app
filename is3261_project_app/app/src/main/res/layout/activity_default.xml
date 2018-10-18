@@ -14,6 +14,39 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity = "center"
+            android:elevation="100dp"
+            android:id= "@+id/appbarid">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/kotlin"
+                android:scaleType="fitXY"/>
+
+
+        </android.support.design.widget.AppBarLayout>
+
+
+
+        <!-- THE LAYOUT for the  tabs in the main page-->
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            android:id="@+id/tabLayout_id"
+            app:tabTextColor="@color/tabTextColor"
+            app:tabIndicatorColor="@color/tabIndicatorColor"
+            app:background="@color/colorPrimary">
+
+
+        </android.support.design.widget.TabLayout>
+
+
         <TextView
             android:id="@+id/mainPageText"
             android:layout_width="match_parent"
@@ -24,7 +57,18 @@
             android:textSize="30sp"
             android:textStyle="bold"
             tools:text="MAIN PAGE TEXT" />
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id ="@+id/viewpager_id">
+
+        </android.support.v4.view.ViewPager>
     </LinearLayout>
+
+
+
+
 
 
 
@@ -35,9 +79,6 @@
         app:menu="@menu/menu_navigation"
         android:layout_gravity="start"
         app:headerLayout="@layout/navigation_header">
-
-
-
     </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>
