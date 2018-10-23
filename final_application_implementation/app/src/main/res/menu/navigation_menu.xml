@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id = "@+id/nav_account"
+        android:title="My Account" />
+
+    <item android:id = "@+id/share_progress"
+        android:title="Share Progress">
+
+        <menu>
+            <item android:id = "@+id/share_progress_fb"
+                android:title="Share Progress on FaceBook" />
+
+            <item android:id = "@+id/share_progress_g_plus"
+                android:title="Share Progress on Google" />
+
+        </menu>
+
+    </item>
+
+    <item android:id = "@+id/upload_drive"
+        android:title="Upload on Google Drive"/>
+
+    <item android:id = "@+id/log_out"
+        android:title="Log Out" />
+
+
+
+</menu>
