@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.widget.Button
 
 class Learn_Multiplatform_Programming : AppCompatActivity() {
-
+    lateinit var url:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn__multiplatform__programming)
@@ -17,13 +17,17 @@ class Learn_Multiplatform_Programming : AppCompatActivity() {
 
         var mpPsdBut = findViewById<Button>(R.id.mp_psd_but)
         mpPsdBut.setOnClickListener {
-            var intent = Intent(this, Learn_Multiplatform_Programming_PSD::class.java)
+            var intent = Intent(this, ActivityWebView::class.java )
+            url = "https://kotlinlang.org/docs/reference/platform-specific-declarations.html"
+            intent.putExtra("url", url)
             startActivity(intent)
         }
 
         var mpBgBut  = findViewById<Button>(R.id.mp_bg_but)
         mpBgBut.setOnClickListener {
-            var intent = Intent(this , Learn_Multplatform_Programming_BG::class.java)
+            var intent = Intent(this ,ActivityWebView::class.java)
+            url = "https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html"
+            intent.putExtra("url", url)
             startActivity(intent)
         }
 

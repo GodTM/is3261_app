@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.widget.Button
 
 class Learn_Basics : AppCompatActivity() {
-
+    lateinit var url:String
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
@@ -27,25 +27,33 @@ class Learn_Basics : AppCompatActivity() {
 
         var basicTypesBut = findViewById<Button>(R.id.basic_basic_types_but)
         basicTypesBut.setOnClickListener {
-            var intent= Intent(this, Learn_Basics_BasicTypes::class.java)
+            url = "https://kotlinlang.org/docs/reference/basic-types.html"
+            var intent= Intent(this, ActivityWebView::class.java)
+            intent.putExtra("url" , url)
             startActivity(intent)
         }
 
         var packagesImportsBut = findViewById<Button>(R.id.basics_packages_imports)
         packagesImportsBut.setOnClickListener{
-            var intent = Intent(this,Learn_Basics_Packages_Imports::class.java)
+            var intent = Intent(this,ActivityWebView::class.java)
+            url = "https://kotlinlang.org/docs/reference/packages.html"
+            intent.putExtra("url" , url)
             startActivity(intent)
         }
 
         var controlFlowBut = findViewById<Button>(R.id.basics_control_flow)
         controlFlowBut.setOnClickListener {
-            var intent = Intent(this , Learn_Basics_Control_Flow::class.java)
+            var intent = Intent(this , ActivityWebView::class.java)
+            url= "https://kotlinlang.org/docs/reference/control-flow.html"
+            intent.putExtra("url" , url)
             startActivity(intent)
         }
 
         var returnJumpsBut = findViewById<Button>(R.id.basics_returns_jumps_but)
         returnJumpsBut.setOnClickListener {
-            var intent = Intent(this , Learn_Basics_Returns_Jumps::class.java)
+            var intent = Intent(this , ActivityWebView::class.java)
+            url = "https://kotlinlang.org/docs/reference/returns.html"
+            intent.putExtra("url" , url)
             startActivity(intent)
         }
 

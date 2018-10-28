@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.widget.Button
 
 class Learn_Functions_Lambdas : AppCompatActivity() {
-
+    lateinit var url:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn__functions__lambdas)
@@ -16,18 +16,24 @@ class Learn_Functions_Lambdas : AppCompatActivity() {
 
         var functionsBut = findViewById<Button>(R.id.functions_lambdas_functions_but)
         functionsBut.setOnClickListener {
-            var intent = Intent(this ,Learn_Functions_Lambdas_Functions::class.java )
+            var intent = Intent(this ,ActivityWebView::class.java )
+            url  = "https://kotlinlang.org/docs/reference/functions.html"
+            intent.putExtra("url", url)
             startActivity(intent)
         }
         var lambdasBut = findViewById<Button>(R.id.functions_lambdas_lambdas_but)
         lambdasBut.setOnClickListener {
-            var intent = Intent(this, Learn_Functions_Lambdas_Lambdas::class.java)
+            var intent = Intent(this, ActivityWebView::class.java)
+            url ="https://kotlinlang.org/docs/reference/lambdas.html"
+            intent.putExtra("url", url)
             startActivity(intent)
         }
 
         var inlineFunctionsBut = findViewById<Button>(R.id.functions_lambdas_inline_functions_but)
         inlineFunctionsBut.setOnClickListener {
-            var intent = Intent( this , Learn_Functions_Lambdas_Inline_Functions::class.java)
+            var intent = Intent( this ,ActivityWebView::class.java)
+            url = "https://kotlinlang.org/docs/reference/inline-functions.html"
+            intent.putExtra("url", url)
             startActivity(intent)
         }
 
