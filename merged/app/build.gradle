@@ -26,6 +26,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+
+}
+
+
+repositories {
+    maven {
+        url "https://s3.amazonaws.com/repo.commonsware.com"
+    }
 }
 
 dependencies {
@@ -45,6 +55,12 @@ dependencies {
     // Google Drive
     implementation "com.google.android.gms:play-services-drive:$play_services_version"
     implementation 'com.squareup.okio:okio:1.14.0'
+
+    // google vision
+    implementation 'com.google.android.gms:play-services-vision:15.0.0'
+
+    // text editor
+    implementation 'com.commonsware.cwac:richedit:0.5.3'
 
 
 }

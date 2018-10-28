@@ -16,6 +16,7 @@ import com.google.android.gms.drive.MetadataChangeSet
 import java.io.OutputStreamWriter
 
 class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
+    lateinit var url:String // to be declared for Practice
     override fun onCreate(savedInstanceState: Bundle?) {
         val state = static_values()
         var position = state.get_position()
@@ -38,7 +39,9 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         var practiceButton = findViewById<Button>(R.id.practice_main_but)
         practiceButton.setOnClickListener {
 
-            var intent = Intent(this, PracticeMain::class.java)
+            var intent = Intent(this, ActivityWebView::class.java)
+            url = "https://try.kotlinlang.org/#/Examples/Hello,%20world!/Simplest%20version/Simplest%20version.kt"
+            intent.putExtra("url", url)
             startActivity(intent)
 
         }
@@ -48,6 +51,15 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
 
             var intent = Intent(this, TutorialsActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        // links to the editor
+        var practiceEditor = findViewById<Button>(R.id.textEditor)
+        practiceEditor.setOnClickListener {
+
+            var intent  = Intent(this , PracticeMain::class.java)
             startActivity(intent)
         }
 

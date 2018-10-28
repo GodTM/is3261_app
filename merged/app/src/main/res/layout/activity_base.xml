@@ -56,6 +56,14 @@
                 android:text="@string/upload"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/textEditor"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="?attr/colorPrimaryDark"
+                android:text="EDITOR"
+                android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 
