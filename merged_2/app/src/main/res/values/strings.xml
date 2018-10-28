@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name"></string>
+
+    <!-- Base activity -->
+    <string name="learn_main"> LEARN </string>
+    <string name="practice_main"> PRACTICE </string>
+    <string name="video_tutorials"> VIDEO TUTORIALS </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--LEARN Button-->
+    <!--LEARN-->
+    <string name="basics"> BASICS </string>
+    <string name="classes">CLASSES AND OBJECTS </string>
+    <string name="functions_lambdas">FUNCTIONS AND LAMBDAS</string>
+    <string name="mp"> MULTIPLATFORM PROGRAMMING </string>
+    <string name="others">OTHERS </string>
+
+
+    <!-- Basics-->
+    <string name="basics_basicTypes">BASIC TYPES </string>
+    <string name="basics_packages_and_imports">PACKAGES AND IMPORTS </string>
+    <string name="control_flow"> CONTROL FLOW </string>
+    <string name="returns_jumps">RETURNS AND JUMPS </string>
+
+
+    <!--CLASSES AND OBJECTS -->
+    <string name="co_classes_inheritance">Classes and Inheritance</string>
+    <string name="co_properties_fields">Properties and Fields</string>
+    <string name="co_interfaces">Interfaces </string>
+    <string name="co_visibility_modifiers">Visibility Modifiers</string>
+    <string name="co_extensions">Extensions</string>
+    <string name="co_data_classes">Data Classes </string>
+    <string name="co_seated_classes">Sealed Classes</string>
+    <string name="co_generics">Generics</string>
+    <string name="co_nested">Nested Classes</string>
+    <string name="co_enum">Enum Classes</string>
+    <string name="co_objects">Objects</string>
+    <string name="co_inline_classes">Inline Classes</string>
+    <string name="delegation">Delegation</string>
+    <string name="delegated_properties">Delegated Properties</string>
+
+    <!-- functions and lambdas-->
+    <string name="functions">Functions </string>
+    <string name="lambdas">Lambdas </string>
+    <string name="inline_functions">Inline Functions</string>
+
+    <!--MULTIPLATFORM PROGRAMMING -->
+    <string name="mp_psd">Platform Specific Declarations </string>
+    <string name="mp_bg">Building with Gradle </string>
+
+    <!--OTHERS -->
+    <string name="ot_declarations">DESTRUCTURING DECLARATIONS</string>
+    <string name="ot_cpllections">COLLECTIONS</string>
+    <string name="ot_ranges">RANGES</string>
+    <string name="ot_tcc">TYPE CHECKS AND CASTS</string>
+    <string name="ot_this">This Expressions </string>
+    <string name="ot_equality">Equality</string>
+    <string name="ot_operator_overloading">Operator Overloading </string>
+    <string name="ot_null_safety">Null Safety</string>
+    <string name="ot_exceptions">Exceptions </string>
+    <string name="ot_annotations">Anotations </string>
+    <string name="ot_reflection">Reflection </string>
+    <string name="ot_type_safe_builders">Type Safe Builders </string>
+    <string name="ot_type_aliases">Type Aliases </string>
+
+    <!--MENU ITEMS -->
+    <string name="share">Share Progress </string>
+    <string name="share_g">Share on Google</string>
+    <string name="log_out">Log Out</string>
+    <string name="my_account">My Account</string>
+    <string name="upload">Upload on Google Drive</string>
+    <string name="login">Login with Google</string>
+
+
+    <!-- OCR -->
+
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Ocr dependencies cannot be downloaded due to low device storage</string>
+    <string name="title_activity_main">Ocr Detector Sample</string>
+    <string name="ocr_header">Click &quot;Detect Text&quot; to detect text</string>
+    <string name="read_text">Detect Text</string>
+    <string name="auto_focus">Auto Focus</string>
+    <string name="use_flash">Use Flash</string>
+    <string name="ocr_success">Text read successfully</string>
+    <string name="ocr_failure">No text captured</string>
+    <string name="ocr_error">"Error reading text: %1$s"</string>
+
+
+</resources>
