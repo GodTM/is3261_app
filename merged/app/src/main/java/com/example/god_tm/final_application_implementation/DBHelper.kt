@@ -15,8 +15,9 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
                 "CREATE TABLE " + TableInfo.TABLE_NAME + " (" +
                         TableInfo.COLUMN_MAIL + " TEXT," +
                         TableInfo.COLUMN_NAME + " TEXT," +
-                        TableInfo.COLUMN_POINTS + " INTEGER," +
+                        TableInfo.COLUMN_POINTS + " TEXT," +
                         TableInfo.COLUMN_PROFILE + " TEXT,"+
+                        TableInfo.COLUMN_URLS + " TEXT,"+
                         "PRIMARY KEY(mail,name)"+
                         ")"
         private val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TableInfo.TABLE_NAME
@@ -44,6 +45,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         values.put(TableInfo.COLUMN_NAME, person.name)
         values.put(TableInfo.COLUMN_POINTS, person.points)
         values.put(TableInfo.COLUMN_PROFILE, person.profile)
+        values.put(TableInfo.COLUMN_URLS,person.urls)
         val newRowId = db.insert(TableInfo.TABLE_NAME,null, values)
         return true
     }
@@ -52,9 +54,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         val db = writableDatabase
         val selection = TableInfo.COLUMN_MAIL + " LIKE ?"
         val selectionArgs = arrayOf(nric)
-
         db.delete(TableInfo.TABLE_NAME, selection, selectionArgs)
-
         return true
     }
 
@@ -72,50 +72,33 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         }
 
         var name: String
-        var points: Int
+        var points: String
         var mail: String
         var profile:String
+        var urls:String
 
         if (cursor!!.moveToFirst()) {
             while (cursor.isAfterLast == false) {
                 mail = cursor.getString(cursor.getColumnIndex(TableInfo.COLUMN_MAIL))
                 name= cursor.getString(cursor.getColumnIndex(TableInfo.COLUMN_NAME))
-                points=cursor.getInt(cursor.getColumnIndex(TableInfo.COLUMN_POINTS))
+                points=cursor.getString(cursor.getColumnIndex(TableInfo.COLUMN_POINTS))
                 profile=cursor.getString(cursor.getColumnIndex(TableInfo.COLUMN_PROFILE))
-                people.add(DataRecord(mail,name,points,profile))
+                urls=cursor.getString(cursor.getColumnIndex(TableInfo.COLUMN_URLS))
+                people.add(DataRecord(mail,name,points,profile,urls))
                 cursor.moveToNext()
             }
         }
         return people
     }
-    fun readAllPeople(): ArrayList<DataRecord> {
-        val people = ArrayList<DataRecord>()
+
+    fun updateValue(id:String,newPoints:String,newUrls:String):Boolean{
         val db = writableDatabase
-        var cursor: Cursor? = null
-        try {
-            cursor = db.rawQuery("select * from "+ TableInfo.TABLE_NAME, null)
-
-        } catch (e: SQLiteException) {
-            db.execSQL(SQL_CREATE_ENTRIES)
-            return ArrayList()
-        }
-
-        var mail: String
-        var name: String
-        var points: Int
-        var profile:String
-
-        if (cursor!!.moveToFirst()) {
-            while (cursor.isAfterLast == false) {
-                mail= cursor.getString(cursor.getColumnIndex(TableInfo.COLUMN_MAIL))
-                name = cursor.getString(cursor.getColumnIndex(TableInfo.COLUMN_NAME))
-                points = cursor.getInt(cursor.getColumnIndex(TableInfo.COLUMN_POINTS))
-                profile=cursor.getString(cursor.getColumnIndex(TableInfo.COLUMN_PROFILE))
-                people.add(DataRecord(mail, name, points,profile))
-                cursor.moveToNext()
-            }
-        }
-        return people
+        val values = ContentValues()
+        values.put(TableInfo.COLUMN_POINTS,newPoints)
+        values.put(TableInfo.COLUMN_URLS,newUrls)
+        val selection = TableInfo.COLUMN_MAIL + "=" + "'"+id+"'"
+        db.update(TableInfo.TABLE_NAME,values,selection,null)
+        return true
     }
 
 

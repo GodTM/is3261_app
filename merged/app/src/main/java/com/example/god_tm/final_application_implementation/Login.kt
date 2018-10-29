@@ -25,12 +25,8 @@ class Login : AppCompatActivity() {
         if(position == 1) setTheme(R.style.AppTheme_Blue)
         if(position == 2) setTheme(R.style.AppTheme_Purple)
         if(position == 3) setTheme(R.style.AppTheme_Grey)
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        Toast.makeText(this,position.toString(),Toast.LENGTH_SHORT).show()
-
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestScopes(Drive.SCOPE_FILE)
                 .requestEmail()
@@ -72,9 +68,10 @@ class Login : AppCompatActivity() {
     fun addPerson(acct:GoogleSignInAccount?) {
         val mail = acct!!.email
         val name = acct.displayName
-        val points = 0
+        val points = "0"
         val profile = acct.photoUrl.toString()
-        val result = usersDBHelper.insertPerson(DataRecord(mail!!,name!!,points,profile))
+        val urls=""
+        val result = usersDBHelper.insertPerson(DataRecord(mail!!,name!!,points,profile,urls))
         Toast.makeText(this,"Added: " + result.toString(), Toast.LENGTH_SHORT).show()
     }
 }

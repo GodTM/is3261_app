@@ -10,5 +10,6 @@ class TableInfo: BaseColumns {
         val COLUMN_NAME = "name"
         val COLUMN_POINTS = "points"
         val COLUMN_PROFILE = "profile"
+        val COLUMN_URLS = "urls"
     }
 }

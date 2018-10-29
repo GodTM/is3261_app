@@ -27,7 +27,6 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         if(position == 3) setTheme(R.style.AppTheme_Grey)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
-        Toast.makeText(this,position.toString(),Toast.LENGTH_SHORT).show()
         changeColorActionBar()
         //window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         var learnButton = findViewById<Button>(R.id.learn_main)
