@@ -12,6 +12,7 @@ import android.webkit.WebView
 import android.widget.Button
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.drive.Drive
 import com.google.android.gms.drive.MetadataChangeSet
 import com.google.android.youtube.player.internal.e
@@ -23,6 +24,9 @@ class ActivityWebView : AppCompatActivity() {
     lateinit var webView: WebView
     lateinit var url: String
     lateinit var checked: String
+    lateinit var db:DBHelper
+    lateinit var acct:GoogleSignInAccount
+    lateinit var point:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -149,6 +153,7 @@ class ActivityWebView : AppCompatActivity() {
             webView.goBack()
         } else {
             super.onBackPressed()
+            db.updateValue(acct.email!!,point,checked)
         }
     }
 
