@@ -36,7 +36,7 @@ class PureKotlinActivity : AppCompatActivity() {
 
         }
 
-        var videoAdapter= VideoAdapter(youtubeVideos)
+        var videoAdapter= VideoAdapter(youtubeVideos )
 
         recyclerView.adapter = videoAdapter
     }

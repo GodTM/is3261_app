@@ -7,6 +7,6 @@
     <WebView
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:id="@+id/web_view_pure_kotlin"></WebView>
+        android:id="@+id/web_view_tutorials"></WebView>
 
 </android.support.constraint.ConstraintLayout>

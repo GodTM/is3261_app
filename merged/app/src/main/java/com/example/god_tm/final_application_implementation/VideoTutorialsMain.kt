@@ -7,9 +7,18 @@ import android.widget.Button
 
 class VideoTutorialsMain : AppCompatActivity() {
 
+    companion object {
+
+        val BASIC_PROGRAMMING = 1
+        val PURE_KOTLIN = 2
+        val KOTLIN_ANDROID = 3
+        val KOTLIN_FIRE_BASE = 4
+        val KOTLIN_ML_KIT = 5
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_tutorials_main)
+
 
 
         var pureProgrammingButton = findViewById<Button>(R.id.programming_beginner)
