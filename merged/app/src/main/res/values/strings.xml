@@ -74,4 +74,13 @@
     <string name="login">Login with Google</string>
 
 
+
+    <!-- TUTORIAL ACTIVITY MAIN PAGE -->
+    <string name="tut_main_programming_beginner"> Beginner Videos </string>
+    <string name="tut_main_pure_kotlin"> Complete Kotlin Guide </string>
+    <string name="tut_main_kotlin_android"> Use Kotlin For Android Applications</string>
+    <string name="tut_main_kotlin_fire_base">Fire Base Tutorials</string>
+    <string name="tut_main_kotlin_ml_kit">Applying Machine Learning to Applications</string>
+
+
 </resources>

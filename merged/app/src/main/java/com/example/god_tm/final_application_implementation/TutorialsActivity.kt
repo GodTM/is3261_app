@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
@@ -22,8 +23,11 @@ class TutorialsActivity : YouTubeBaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutorials)
 
-
-
+        // Hide the status bar.
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        // Remember that you should never show the action bar if the
+        // status bar is hidden, so hide that too if necessary.
+        actionBar?.hide()
         var myYoutubePlayer:YouTubePlayerView = findViewById(R.id.view)
 
         var myOnInitialisedListener = object: YouTubePlayer.OnInitializedListener {

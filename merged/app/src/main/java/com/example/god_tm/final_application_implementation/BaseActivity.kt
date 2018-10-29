@@ -50,7 +50,7 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         tutorials.setOnClickListener {
 
 
-            var intent = Intent(this, TutorialsActivity::class.java)
+            var intent = Intent(this, VideoTutorialsMain::class.java)
             startActivity(intent)
         }
 

@@ -79,10 +79,11 @@
         android:id="@+id/basics_back_but"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="40dp"
-        android:padding="5dp"
+        android:layout_marginEnd="44dp"
         android:background="@drawable/rounded_button"
         android:gravity="center_vertical|center_horizontal"
+        android:padding="5dp"
+        android:paddingBottom="15dp"
         android:text="Back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/basics_control_flow" />
