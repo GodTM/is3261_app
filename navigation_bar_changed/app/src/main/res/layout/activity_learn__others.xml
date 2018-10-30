@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Learn_Others"
+    android:id="@+id/DrawerLayout_SideBar">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:fillViewport="true">
+
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorPrimaryDark"
+        tools:context=".Learn_Others">
+
+        <Button
+            android:id="@+id/ot_declarations_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_declarations"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/ot_collections_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_cpllections"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_declarations_but" />
+
+        <Button
+            android:id="@+id/ot_ranges_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_ranges"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_collections_but" />
+
+        <Button
+            android:id="@+id/ot_tcc_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_tcc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_ranges_but" />
+
+        <Button
+            android:id="@+id/ot_this_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_this"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_tcc_but" />
+
+        <Button
+            android:id="@+id/ot_equality_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_equality"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_this_but" />
+
+        <Button
+            android:id="@+id/ot_null_safety_button"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_null_safety"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_equality_but" />
+
+        <Button
+            android:id="@+id/ot_exceptions_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_exceptions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_null_safety_button" />
+
+        <Button
+            android:id="@+id/ot_annotations_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_annotations"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_exceptions_but" />
+
+        <Button
+            android:id="@+id/ot_reflection_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_reflection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_annotations_but" />
+
+        <Button
+            android:id="@+id/ot_type_safe_builders_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_type_safe_builders"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_reflection_but" />
+
+        <Button
+            android:id="@+id/ot_type_aliases_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_type_aliases"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_type_safe_builders_but" />
+
+
+        <Button
+            android:id="@+id/others_operator_overloading_but"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ot_type_aliases"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ot_type_aliases_but" />
+        <Button
+            android:id="@+id/back_others"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/others_operator_overloading_but" />
+
+
+    </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+
+
+    <android.support.design.widget.NavigationView
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        app:menu="@menu/navigation_menu"
+        android:layout_gravity="start">
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
