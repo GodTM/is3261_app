@@ -8,18 +8,7 @@
     android:id="@+id/DrawerLayout_SideBar">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
     <!-- CONTENT ON THE SCREEN AND INSIDE THE SCROLL VIEW-->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:fillViewport="true">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -27,7 +16,8 @@
             <Button
                 android:id="@+id/learn_main"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:background="?attr/colorPrimary"
                 android:text="@string/learn_main"
                 android:textStyle="bold" />
@@ -35,7 +25,8 @@
             <Button
                 android:id="@+id/practice_main_but"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:background="?attr/colorPrimaryDark"
                 android:text="@string/practice_main"
                 android:textStyle="bold" />
@@ -43,38 +34,40 @@
             <Button
                 android:id="@+id/video_tutorials_button"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:background="?attr/colorPrimary"
                 android:text="@string/video_tutorials"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/upload"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="?attr/colorPrimaryDark"
-                android:text="@string/upload"
-                android:textStyle="bold" />
-
-            <Button
                 android:id="@+id/textEditor"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:background="?attr/colorPrimaryDark"
                 android:text="EDITOR"
                 android:textStyle="bold" />
 
-        </LinearLayout>
-    </ScrollView>
-
     </LinearLayout>
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/navigationView"
+    <ListView
+        android:id="@+id/navdrawer"
+        android:layout_width="260dp"
         android:layout_height="match_parent"
-        android:layout_width="wrap_content"
-        app:menu="@menu/navigation_menu"
-        android:layout_gravity="start">
-    </android.support.design.widget.NavigationView>
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:drawSelectorOnTop="false">
+    </ListView>
+    <!-- <android.support.design.widget.NavigationView
+         android:id="@+id/navigationView"
+         android:layout_height="match_parent"
+         android:layout_width="wrap_content"
+         app:menu="@menu/navigation_menu"
+         android:layout_gravity="start">
+     </android.support.design.widget.NavigationView> -->
 
-</android.support.v4.widget.DrawerLayout>
+ </android.support.v4.widget.DrawerLayout>

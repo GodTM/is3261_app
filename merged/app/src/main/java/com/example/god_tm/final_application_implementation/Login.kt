@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.SignInButton
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.drive.Drive
@@ -27,6 +28,8 @@ class Login : AppCompatActivity() {
         if(position == 3) setTheme(R.style.AppTheme_Grey)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        supportActionBar!!.hide()
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestScopes(Drive.SCOPE_FILE)
                 .requestEmail()
@@ -35,7 +38,7 @@ class Login : AppCompatActivity() {
         val acct = GoogleSignIn.getLastSignedInAccount(this)
         updateUI(acct)
 
-        val btn_sign = findViewById<Button>(R.id.login)
+        val btn_sign = findViewById<SignInButton>(R.id.sign_in_button)
         btn_sign.setOnClickListener{
             val signInIntent = mGoogleSignInClient.signInIntent
             startActivityForResult(signInIntent, RC_SIGN_IN)
@@ -54,7 +57,8 @@ class Login : AppCompatActivity() {
         try {
             val acct = completedTask.getResult(ApiException::class.java)
             updateUI(acct)
-            addPerson(acct)
+            //if database does not contain the record of current signed user, then add it to db
+            if(usersDBHelper.readPerson(acct.email!!).toString() == "") addPerson(acct)
         } catch (e: ApiException) {
             updateUI(null)
         }

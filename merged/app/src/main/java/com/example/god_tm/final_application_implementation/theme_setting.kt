@@ -17,6 +17,8 @@ class theme_setting : AppCompatActivity() {
         if(position == 3) setTheme(R.style.AppTheme_Grey)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme_setting)
+        supportActionBar!!.hide()
+
 
         val bt_dft = findViewById<RadioButton>(R.id.dft)
         bt_dft.setOnClickListener{

@@ -6,36 +6,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Login">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/headingLogin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="35dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:text="@string/login"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/kotlin_logo" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_gravity="center"/>
+
     <TextView
-        android:id="@+id/blank_space_mid"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
-
-
-    <Button
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="@string/login" />
-
-    <TextView
-        android:id="@+id/blankSpaceEnd_login"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2" />
+        android:layout_weight="1"/>
 
 </LinearLayout>

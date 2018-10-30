@@ -21,7 +21,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Learn_Multiplatform_Programming">
+        android:background="?attr/colorPrimaryDark"
+        tools:context=".Learn_Multiplatform_Programming">
 
 
         <Button

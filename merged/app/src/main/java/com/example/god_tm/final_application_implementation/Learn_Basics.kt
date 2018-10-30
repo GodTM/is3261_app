@@ -24,6 +24,7 @@ class Learn_Basics : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn__basics)
         //changeColorActionBar()
+        supportActionBar!!.hide()
 
         var basicTypesBut = findViewById<Button>(R.id.basic_basic_types_but)
         basicTypesBut.setOnClickListener {

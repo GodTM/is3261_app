@@ -15,7 +15,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.drive.Drive
 import com.google.android.gms.drive.MetadataChangeSet
-import com.google.android.youtube.player.internal.e
 import org.jsoup.Jsoup
 import java.io.OutputStreamWriter
 import java.lang.Exception
@@ -23,21 +22,36 @@ import java.lang.Exception
 class ActivityWebView : AppCompatActivity() {
     lateinit var webView: WebView
     lateinit var url: String
-    lateinit var checked: String
     lateinit var db:DBHelper
     lateinit var acct:GoogleSignInAccount
-    lateinit var point:String
+    var point2:Int =0
+    lateinit var checked2:String
+    var point:Int =0
+    lateinit var checked:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val state = static_values()
+        var position = state.get_position()
+        if(position == -1) setTheme(R.style.AppTheme)
+        if(position == 0) setTheme(R.style.AppTheme_Green)
+        if(position == 1) setTheme(R.style.AppTheme_Blue)
+        if(position == 2) setTheme(R.style.AppTheme_Purple)
+        if(position == 3) setTheme(R.style.AppTheme_Grey)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
+        supportActionBar!!.hide()
+        actionBar.hide()
         val acct = GoogleSignIn.getLastSignedInAccount(this)
         val db = DBHelper(this)
         var file_title = ""
         var file_content = ""
         val user = db.readPerson(acct!!.email!!)
-        var point = user[0].points.toInt()
+        point = user[0].points.toInt()
         checked = user[0].urls
+        point2=point
+        checked2=checked
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
         val builder = StrictMode.VmPolicy.Builder()
@@ -69,12 +83,16 @@ class ActivityWebView : AppCompatActivity() {
             webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null)
         }
 
-
-        webView.webViewClient = MyWebViewClient()
-        url = intent.getStringExtra("url")
-        webView.loadUrl(url)
         val show_p = findViewById<Button>(R.id.points)
         val upload_bt = findViewById<Button>(R.id.get)
+        webView.webViewClient = MyWebViewClient()
+        url = intent.getStringExtra("url")
+        if(url !="https://try.kotlinlang.org/#/Examples/Hello,%20world!/Simplest%20version/Simplest%20version.kt"){
+            show_p.visibility = View.INVISIBLE
+            upload_bt.visibility= View.INVISIBLE
+        }
+        webView.loadUrl(url)
+
 
         //webview onclick listener
         webView.setOnTouchListener({ v, event ->
@@ -96,8 +114,8 @@ class ActivityWebView : AppCompatActivity() {
                                             val real_output = output.text().replace("\\n", "")
                                             Toast.makeText(this, "output:"+real_output, Toast.LENGTH_SHORT).show()
                                             if (!checked.contains(url) && real_output.contains("All tests passed")) {
-                                                checked = checked + url + "/"
-                                                point = point + 1
+                                                checked2 = checked2 + url + "/"
+                                                point2 = point2 + 1
                                             }
                                         }
                                     })
@@ -131,7 +149,7 @@ class ActivityWebView : AppCompatActivity() {
                 val writer = OutputStreamWriter(outputStream)
                 //this is the content of the file
                 writer.write(file_content)
-                //writer.close()
+                writer.flush()
                 val changeSet = MetadataChangeSet.Builder()
                         //the title of the file
                         .setTitle(file_title)
@@ -141,7 +159,9 @@ class ActivityWebView : AppCompatActivity() {
                 mDriveResourceClient.createFile(rootFolder.result, changeSet, contents)
                 Toast.makeText(this, "upload successfully", Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
-                Log.d("ERROR", e.toString())
+                //here is a bug. updating works only when the first click
+                Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
+                recreate()
             }
         }
 
@@ -153,7 +173,7 @@ class ActivityWebView : AppCompatActivity() {
             webView.goBack()
         } else {
             super.onBackPressed()
-            db.updateValue(acct.email!!,point,checked)
+            if(point2 != point && checked2 != checked) db.updateValue(acct.email!!,point2.toString(),checked2)
         }
     }
 
