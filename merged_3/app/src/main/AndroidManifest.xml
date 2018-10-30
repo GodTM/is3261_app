@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.god_tm.final_application_implementation">
+
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".static_values"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Grey">
+        <activity android:name=".Login">
+            <meta-data
+                android:name="com.google.android.apps.drive.APP_ID"
+                android:value="id=408435083091-elnmgou0qhrp32s0f4a8tcprti1jjg7l.apps.googleusercontent.com" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="com.google.android.apps.drive.DRIVE_OPEN" />
+
+                <data android:mimeType="application/vnd.google-apps.drive-sdk.408435083091-elnmgou0qhrp32s0f4a8tcprti1jjg7l.apps.googleusercontent.com" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PracticeMain" />
+        <activity
+            android:name=".TutorialsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="landscape" />
+        <activity android:name=".LearnActivity" />
+        <activity android:name=".Learn_Basics" />
+        <activity android:name=".Learn_Classes_Objects" />
+        <activity android:name=".Learn_Functions_Lambdas" />
+        <activity android:name=".Learn_Multiplatform_Programming" />
+        <activity android:name=".Learn_Others" />
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".theme_setting" />
+        <activity android:name=".ActivityWebView" />
+        <activity android:name=".ScanCode" />
+        <activity android:name=".VideoTutorialsMain" />
+        <activity android:name=".PureProgrammingActivity" />
+        <activity android:name=".PureKotlinActivity" />
+        <activity android:name=".KotlinFireBaseActivity" />
+        <activity android:name=".KotlinMLKitActivity" />
+        <activity android:name=".KotlinAndroidActivity" />
+        <activity android:name=".Pusher_Main" />
+        <activity android:name=".Kotlin_PlayGround"></activity>
+    </application>
+
+</manifest>
