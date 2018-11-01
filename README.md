@@ -17,3 +17,7 @@ https://www.youtube.com/watch?v=z9qScBaKfnM
 CardView Material Design - 
 
 https://material.io/design/components/cards.html#behavior
+
+
+Youtube Videos - 
+https://www.youtube.com/watch?v=VEqhzCFmEQI&list=PLlxmoA0rQ-LwgK1JsnMsakYNACYGa1cjR
