@@ -2,6 +2,7 @@ package com.example.god_tm.final_application_implementation
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
@@ -28,6 +29,7 @@ class AccountActivity : AppCompatActivity() {
                                 "Name : "+acct!!.displayName+"\n"+
                                 "Points : "+point+"\n"+
         "Profile : " + profile.toString()+"\n")
+        Log.e("profile",profile.toString())
         if(profile.toString() == "null"){
             Toast.makeText(this,"Please check if your Google account has had Google+ profile picture or not.",Toast.LENGTH_LONG).show()
         }
