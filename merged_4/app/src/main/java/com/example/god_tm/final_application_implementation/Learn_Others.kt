@@ -10,9 +10,14 @@ import android.widget.Button
 class Learn_Others : AppCompatActivity() {
     lateinit var url:String
     override fun onCreate(savedInstanceState: Bundle?) {
+        val state = static_values()
+        var position = state.get_position()
+        if(position == 0) setTheme(R.style.AppTheme_Green)
+        if(position == 1) setTheme(R.style.AppTheme_Blue)
+        if(position == 3) setTheme(R.style.AppTheme_Grey)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn__others)
-        changeColorActionBar()
+        //changeColorActionBar()
 
 
         var annotationsBut= findViewById<Button>(R.id.ot_annotations_but)
@@ -115,7 +120,7 @@ class Learn_Others : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        changeColorActionBar()
+        //changeColorActionBar()
     }
 
     override fun onPause(){

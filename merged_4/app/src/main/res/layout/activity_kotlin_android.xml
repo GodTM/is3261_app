@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Learn_Basics"
-    android:background="@color/colorPrimaryDark"
+    android:background="?attr/colorPrimaryDark"
     android:id="@+id/DrawerLayout_SideBar">
 
 
@@ -21,7 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerView_kotlin_android">
-
 
 
     </android.support.v7.widget.RecyclerView>

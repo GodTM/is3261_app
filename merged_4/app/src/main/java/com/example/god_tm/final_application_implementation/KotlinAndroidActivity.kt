@@ -13,6 +13,11 @@ class KotlinAndroidActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val state = static_values()
+        var position = state.get_position()
+        if(position == 0) setTheme(R.style.AppTheme_Green)
+        if(position == 1) setTheme(R.style.AppTheme_Blue)
+        if(position == 3) setTheme(R.style.AppTheme_Grey)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kotlin_android)
 

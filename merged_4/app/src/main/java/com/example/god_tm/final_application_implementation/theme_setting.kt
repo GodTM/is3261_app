@@ -10,19 +10,11 @@ class theme_setting : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val state = static_values()
         var position = state.get_position()
-        if(position == -1) setTheme(R.style.AppTheme)
         if(position == 0) setTheme(R.style.AppTheme_Green)
         if(position == 1) setTheme(R.style.AppTheme_Blue)
-        if(position == 2) setTheme(R.style.AppTheme_Purple)
         if(position == 3) setTheme(R.style.AppTheme_Grey)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme_setting)
-
-        val bt_dft = findViewById<RadioButton>(R.id.dft)
-        bt_dft.setOnClickListener{
-            state.set(-1)
-            recreate()
-        }
 
         val bt_green = findViewById<RadioButton>(R.id.green)
         bt_green.setOnClickListener{
@@ -33,12 +25,6 @@ class theme_setting : AppCompatActivity() {
         val bt_blue = findViewById<RadioButton>(R.id.blue)
         bt_blue.setOnClickListener{
             state.set(1)
-            recreate()
-        }
-
-        val bt_purple = findViewById<RadioButton>(R.id.purple)
-        bt_purple.setOnClickListener{
-            state.set(2)
             recreate()
         }
 

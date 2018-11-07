@@ -11,10 +11,13 @@ import android.widget.Button
 class LearnActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val state = static_values()
+        var position = state.get_position()
+        if(position == 0) setTheme(R.style.AppTheme_Green)
+        if(position == 1) setTheme(R.style.AppTheme_Blue)
+        if(position == 3) setTheme(R.style.AppTheme_Grey)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn)
-        changeColorActionBar()
-
 
         var basicTypes= findViewById<Button>(R.id.learn_basics_but)
         var classesObjects = findViewById<Button>(R.id.learn_classes_objects_but)
@@ -50,14 +53,7 @@ class LearnActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        changeColorActionBar()
         initialiseButtons()
-    }
-
-
-    fun changeColorActionBar(){
-        var actionBar = supportActionBar
-        actionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#1976D2")))
     }
 
 

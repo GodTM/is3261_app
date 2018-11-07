@@ -8,6 +8,7 @@
     <meta-data
         android:name="com.facebook.sdk.ApplicationId"
         android:value="@string/facebook_app_id" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -24,22 +25,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Grey">
-        <provider android:authorities="com.facebook.app.FacebookContentProvider722472751466283"
+        <provider
             android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider722472751466283"
             android:exported="true" />
+
         <activity android:name=".Login">
             <meta-data
                 android:name="com.google.android.apps.drive.APP_ID"
                 android:value="id=408435083091-elnmgou0qhrp32s0f4a8tcprti1jjg7l.apps.googleusercontent.com" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="com.google.android.apps.drive.DRIVE_OPEN" />
+
                 <data android:mimeType="application/vnd.google-apps.drive-sdk.408435083091-elnmgou0qhrp32s0f4a8tcprti1jjg7l.apps.googleusercontent.com" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-        <activity android:name=".PracticeMain" />
         <activity
             android:name=".TutorialsActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -59,12 +65,8 @@
         <activity android:name=".KotlinFireBaseActivity" />
         <activity android:name=".KotlinMLKitActivity" />
         <activity android:name=".KotlinAndroidActivity" />
-        <activity android:name=".Kotlin_PlayGround" />
-        <activity android:name=".picActivity">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".accoutActivity" />
+        <activity android:name=".AccountActivity"></activity>
     </application>
 
 </manifest>
