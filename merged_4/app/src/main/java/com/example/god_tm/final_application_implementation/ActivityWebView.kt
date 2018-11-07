@@ -18,6 +18,7 @@ import org.jsoup.Jsoup
 import java.io.OutputStreamWriter
 import android.util.DisplayMetrics
 import android.view.ViewGroup
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 
 class ActivityWebView : AppCompatActivity() {
     lateinit var webView: WebView
@@ -27,6 +28,8 @@ class ActivityWebView : AppCompatActivity() {
     var file_title=""
     lateinit var checked_urls:String
     var points = 0
+    val state = static_values()
+    var acct:GoogleSignInAccount?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val state = static_values()
@@ -37,11 +40,15 @@ class ActivityWebView : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
-        val acct = GoogleSignIn.getLastSignedInAccount(this)
-        usersDBHelper = DBHelper(this)
-        val user = usersDBHelper.readPerson(acct!!.email!!)
-        points=user[0].points.toInt()
-        checked_urls=user[0].urls
+        val bt_upload = findViewById<Button>(R.id.upload)
+
+        if(state.get_status()==1){
+            val acct = GoogleSignIn.getLastSignedInAccount(this)
+            usersDBHelper = DBHelper(this)
+            val user = usersDBHelper.readPerson(acct!!.email!!)
+            points=user[0].points.toInt()
+            checked_urls=user[0].urls
+        }
 
         webView = findViewById(R.id.common_webview)
         webView.settings.loadWithOverviewMode = true
@@ -51,7 +58,6 @@ class ActivityWebView : AppCompatActivity() {
         webView.settings.domStorageEnabled=true
         webView.settings.cacheMode=WebSettings.LOAD_CACHE_ELSE_NETWORK
 
-        val bt_upload = findViewById<Button>(R.id.upload)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // chromium, enable hardware acceleration
             webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
@@ -63,8 +69,7 @@ class ActivityWebView : AppCompatActivity() {
         url = intent.getStringExtra("url")
         webView.loadUrl(url)
 
-
-        if(!url.contains("koans")) {
+        if(!url.contains("koans") || state.get_status()==0) {
             val layout=findViewById<LinearLayout>(R.id.linearLayout)
             layout.weightSum = 10f
             var lParams  = LinearLayout.LayoutParams(layout.getLayoutParams())
@@ -92,7 +97,7 @@ class ActivityWebView : AppCompatActivity() {
                                     file_title = temp3.getElementsByTag("h2").text()
                                     var output = temp3.getElementsByClass("\\\"test-output\\\"").text()
                                     if (output != "") {
-                                        if(!output.contains("Fail") && !checked_urls.contains(url)){
+                                        if(!output.contains("Fail") && state.get_status()==1&& !checked_urls.contains(url)){
                                             points = points +1
                                             checked_urls = checked_urls + "\\" + url
                                             usersDBHelper.updateValue(acct!!.email!!,points.toString(),checked_urls)
@@ -108,7 +113,8 @@ class ActivityWebView : AppCompatActivity() {
             false
         }
 
-        val mDriveResourceClient = Drive.getDriveResourceClient(this, acct!!)
+        if(state.get_status()==1){
+            val mDriveResourceClient = Drive.getDriveResourceClient(this, acct!!)
         val rootFolder = mDriveResourceClient.rootFolder
         val createContentsTask = mDriveResourceClient.createContents()
         bt_upload.setOnClickListener {
@@ -135,7 +141,7 @@ class ActivityWebView : AppCompatActivity() {
                 Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
                 recreate()
             }
-        }
+        }}
 
 
     }

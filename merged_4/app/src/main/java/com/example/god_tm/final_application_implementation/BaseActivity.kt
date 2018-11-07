@@ -32,22 +32,25 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     var points = ""
     lateinit var mNavigationView:NavigationView
     lateinit var drawerLayout:DrawerLayout
+    val state = static_values()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val state = static_values()
         var position = state.get_position()
         if(position == 0) setTheme(R.style.AppTheme_Green)
         if(position == 1) setTheme(R.style.AppTheme_Blue)
         if(position == 3) setTheme(R.style.AppTheme_Grey)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
         val actionBar = supportActionBar
         actionBar!!.setDisplayHomeAsUpEnabled(true)
         actionBar.setHomeAsUpIndicator(DrawerArrowDrawable(this))
+
+        if(state.get_status() == 1){
         usersDBHelper=DBHelper(this)
         val acct = GoogleSignIn.getLastSignedInAccount(this)
         val user = usersDBHelper.readPerson(acct!!.email!!)
-        points =user[0].points
+        points =user[0].points}
 
         var learnButton = findViewById<Button>(R.id.learn_main)
         learnButton.setOnClickListener {
@@ -84,21 +87,17 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         super.onResume()
         //changeColorActionBar()
     }
-
     override fun onPause() {
         super.onPause()
     }
     override fun onDestroy() {
         super.onDestroy()
     }
-    fun changeColorActionBar() {
-        var actionBar = supportActionBar
-        actionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#1976D2")))
-    }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         //log out
         if (id == R.id.log_out) {
+            if(state.get_status()==1){
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestScopes(Drive.SCOPE_FILE)
                     .requestEmail()
@@ -109,7 +108,11 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                         Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
                         val i = Intent(this, Login::class.java)
                         startActivity(i)
-                    }
+                    }}
+            else{
+                val i = Intent(this, Login::class.java)
+                startActivity(i)
+            }
         }
         //upload file onto google drive
         if(id == R.id.setting){
@@ -145,8 +148,11 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             shareDialog.show(content)
         }
         if(id == R.id.nav_account){
+            if(state.get_position()==1){
             val i = Intent(this,AccountActivity::class.java)
-            startActivity(i)
+            startActivity(i)}else{
+                Toast.makeText(this,"You are logging as a guest",Toast.LENGTH_SHORT).show()
+            }
         }
         return false
     }

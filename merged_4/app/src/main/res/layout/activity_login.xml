@@ -26,11 +26,19 @@
 
 
     <Button
-        android:id="@+id/login"
+    android:id="@+id/login"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:text="@string/login" />
+
+    <Button
+        android:id="@+id/login2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="@string/login" />
+        android:text="Login as a guest" />
+
 
     <TextView
         android:id="@+id/blankSpaceEnd_login"

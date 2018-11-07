@@ -22,6 +22,7 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        val state = static_values()
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestScopes(Drive.SCOPE_FILE)
                 .requestEmail()
@@ -30,6 +31,13 @@ class Login : AppCompatActivity() {
         val acct = GoogleSignIn.getLastSignedInAccount(this)
         updateUI(acct)
 
+        val btn_sign_guest = findViewById<Button>(R.id.login2)
+        btn_sign_guest.setOnClickListener {
+            val i = Intent(this,BaseActivity::class.java)
+            startActivity(i)
+            state.login_set(0)
+        }
+
         val btn_sign = findViewById<Button>(R.id.login)
         btn_sign.setOnClickListener{
             val signInIntent = mGoogleSignInClient.signInIntent
@@ -37,6 +45,8 @@ class Login : AppCompatActivity() {
         }
         usersDBHelper = DBHelper(this)
     }
+
+
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN) {
