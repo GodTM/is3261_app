@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VideoTutorialsMain">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark"
+        android:fillViewport="true">
+
+
+            <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".VideoTutorialsMain">
+
+                <Button
+                    android:id="@+id/programming_beginner"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_margin="50dp"
+                    android:padding="20dp"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@string/tut_main_programming_beginner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                <Button
+                    android:id="@+id/pure_kotlin"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="40dp"
+                    android:padding="20dp"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@string/tut_main_pure_kotlin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/programming_beginner" />
+
+
+
+                <Button
+                    android:id="@+id/kotlin_for_android"
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"
+                    android:layout_margin="50dp"
+                    android:padding="40dp"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@string/tut_main_kotlin_android"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pure_kotlin" />
+
+
+
+
+                <Button
+                    android:id="@+id/kotlin_android_fire_base"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="30dp"
+                    android:padding="20dp"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@string/tut_main_kotlin_fire_base"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/kotlin_for_android" />
+
+
+                <Button
+                    android:id="@+id/kotlin_ml_kit"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="50dp"
+                    android:padding="40dp"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@string/tut_main_kotlin_ml_kit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/kotlin_android_fire_base" />
+
+
+                <Button
+                    android:id="@+id/video_tutorials_main_back_but"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="30dp"
+                    android:padding="5dp"
+                    android:background="@drawable/rounded_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/kotlin_ml_kit" />
+
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/navigation_menu"
+        android:layout_gravity="start">
+
+
+    </android.support.design.widget.NavigationView>
+
+
+
+
+
+
+</android.support.v4.widget.DrawerLayout>

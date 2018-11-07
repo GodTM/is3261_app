@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Learn_Functions_Lambdas"
+    android:background="@color/colorPrimaryDark"
+    android:id="@+id/DrawerLayout_SideBar">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fillViewport="true">
+
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Learn_Functions_Lambdas">
+
+
+        <Button
+            android:id="@+id/functions_lambdas_functions_but"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/functions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/functions_lambdas_lambdas_but"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/lambdas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/functions_lambdas_functions_but" />
+
+        <Button
+            android:id="@+id/functions_lambdas_inline_functions_but"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/inline_functions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/functions_lambdas_lambdas_but" />
+
+        <Button
+            android:id="@+id/back_but_functions_lambdas"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="60dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/functions_lambdas_inline_functions_but" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+
+
+    <android.support.design.widget.NavigationView
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        app:menu="@menu/navigation_menu"
+        android:layout_gravity="start">
+
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>
