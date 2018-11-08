@@ -18,8 +18,6 @@ class Learn_Basics : AppCompatActivity() {
         if(position == 3) setTheme(R.style.AppTheme_Grey)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn__basics)
-        //changeColorActionBar()
-
         var basicTypesBut = findViewById<Button>(R.id.basic_basic_types_but)
         basicTypesBut.setOnClickListener {
             url = "https://kotlinlang.org/docs/reference/basic-types.html"
@@ -71,12 +69,5 @@ class Learn_Basics : AppCompatActivity() {
     override fun onDestroy(){
         super.onDestroy()
     }
-
-    fun changeColorActionBar(){
-        var actionBar = supportActionBar
-        actionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#1976D2")))
-    }
-
-
 
 }

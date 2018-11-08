@@ -1,9 +1,9 @@
 package com.example.god_tm.final_application_implementation
 
+import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.webkit.WebSettings
@@ -16,9 +16,9 @@ import com.google.android.gms.drive.Drive
 import com.google.android.gms.drive.MetadataChangeSet
 import org.jsoup.Jsoup
 import java.io.OutputStreamWriter
-import android.util.DisplayMetrics
-import android.view.ViewGroup
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.youtube.player.internal.e
+import com.google.android.youtube.player.internal.l
 
 class ActivityWebView : AppCompatActivity() {
     lateinit var webView: WebView
@@ -41,14 +41,6 @@ class ActivityWebView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
         val bt_upload = findViewById<Button>(R.id.upload)
-
-        if(state.get_status()==1){
-            val acct = GoogleSignIn.getLastSignedInAccount(this)
-            usersDBHelper = DBHelper(this)
-            val user = usersDBHelper.readPerson(acct!!.email!!)
-            points=user[0].points.toInt()
-            checked_urls=user[0].urls
-        }
 
         webView = findViewById(R.id.common_webview)
         webView.settings.loadWithOverviewMode = true
@@ -76,7 +68,6 @@ class ActivityWebView : AppCompatActivity() {
             lParams.height = 0
             lParams.weight = 0f
             bt_upload.setLayoutParams(lParams)
-
             var rParams  = LinearLayout.LayoutParams(layout.getLayoutParams())
             rParams.height = LinearLayout.LayoutParams.MATCH_PARENT
             rParams.weight  = layout.weightSum
@@ -97,9 +88,9 @@ class ActivityWebView : AppCompatActivity() {
                                     file_title = temp3.getElementsByTag("h2").text()
                                     var output = temp3.getElementsByClass("\\\"test-output\\\"").text()
                                     if (output != "") {
-                                        if(!output.contains("Fail") && state.get_status()==1&& !checked_urls.contains(url)){
+                                        if(!output.contains("Fail") && state.get_status()==1&& !checked_urls.contains(webView.url)){
                                             points = points +1
-                                            checked_urls = checked_urls + "\\" + url
+                                            checked_urls = checked_urls + "\\" + webView.url
                                             usersDBHelper.updateValue(acct!!.email!!,points.toString(),checked_urls)
                                             Toast.makeText(this,"Congratulations! You get one point!"+"\n"+"Your current point:"+
                                                     points,Toast.LENGTH_LONG).show()
@@ -114,6 +105,11 @@ class ActivityWebView : AppCompatActivity() {
         }
 
         if(state.get_status()==1){
+            val acct = GoogleSignIn.getLastSignedInAccount(this)
+            usersDBHelper = DBHelper(this)
+            val user = usersDBHelper.readPerson(acct!!.email!!)
+            points=user[0].points.toInt()
+            checked_urls=user[0].urls
             val mDriveResourceClient = Drive.getDriveResourceClient(this, acct!!)
         val rootFolder = mDriveResourceClient.rootFolder
         val createContentsTask = mDriveResourceClient.createContents()
@@ -134,12 +130,10 @@ class ActivityWebView : AppCompatActivity() {
                         .build()
                 mDriveResourceClient.createFile(rootFolder.result, changeSet, contents)
                 Toast.makeText(this, "upload successfully", Toast.LENGTH_SHORT).show()
-                outputStream.flush()
-                outputStream.close()
+                intent.putExtra("url", webView.url)
+                startActivity(intent)
             } catch (e: Exception) {
-                //here is a bug. updating works only when the first click
                 Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
-                recreate()
             }
         }}
 

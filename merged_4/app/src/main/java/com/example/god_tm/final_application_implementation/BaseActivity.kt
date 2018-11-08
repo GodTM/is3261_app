@@ -71,8 +71,9 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
         var tutorials = findViewById<Button>(R.id.video_tutorials_button)
         tutorials.setOnClickListener {
-            var intent = Intent(this, VideoTutorialsMain::class.java)
+            var intent = Intent(this, TestVideo::class.java)
             startActivity(intent)
+
         }
 
         mNavigationView = findViewById(R.id.navigationView)
@@ -148,7 +149,7 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             shareDialog.show(content)
         }
         if(id == R.id.nav_account){
-            if(state.get_position()==1){
+            if(state.get_status()==1){
             val i = Intent(this,AccountActivity::class.java)
             startActivity(i)}else{
                 Toast.makeText(this,"You are logging as a guest",Toast.LENGTH_SHORT).show()
