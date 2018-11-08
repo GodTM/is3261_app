@@ -52,6 +52,12 @@ class BaseActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         val user = usersDBHelper.readPerson(acct!!.email!!)
         points =user[0].points}
 
+        var bt_qa = findViewById<Button>(R.id.qa)
+        bt_qa.setOnClickListener {
+            val i = Intent(this,QaActivity::class.java)
+            startActivity(i)
+        }
+
         var learnButton = findViewById<Button>(R.id.learn_main)
         learnButton.setOnClickListener {
             var intent = Intent(this, LearnActivity::class.java)

@@ -1,6 +1,5 @@
 package com.example.god_tm.final_application_implementation
 
-import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -17,8 +16,6 @@ import com.google.android.gms.drive.MetadataChangeSet
 import org.jsoup.Jsoup
 import java.io.OutputStreamWriter
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.youtube.player.internal.e
-import com.google.android.youtube.player.internal.l
 
 class ActivityWebView : AppCompatActivity() {
     lateinit var webView: WebView

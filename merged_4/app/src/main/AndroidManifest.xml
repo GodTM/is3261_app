@@ -67,7 +67,8 @@
         <activity android:name=".KotlinAndroidActivity" />
         <activity android:name=".accoutActivity" />
         <activity android:name=".AccountActivity" />
-        <activity android:name=".TestVideo"></activity>
+        <activity android:name=".TestVideo" />
+        <activity android:name=".QaActivity"></activity>
     </application>
 
 </manifest>
