@@ -1,5 +1,7 @@
 # is3261_app
 
+This application helps people learn Kotlin. People can create an account, learn the language, solve Kotlin programming problems, and share their level of expertise on Social Media. They can solve problems on the go and save the incomplete code on Google Drive with just a click. This feature is only available if one logs in with a Google Account.
+
 
 Kotlin Koans website 
 https://play.kotlinlang.org/koans/Introduction/Named%20arguments/Task.kt
