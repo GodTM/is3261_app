@@ -1,5 +1,7 @@
 # is3261_app
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4850449e374647378da8b5ba576a9384)](https://app.codacy.com/app/esjaiswal1/is3261_app?utm_source=github.com&utm_medium=referral&utm_content=GodTM/is3261_app&utm_campaign=Badge_Grade_Dashboard)
+
 This application helps people learn Kotlin. People can create an account, learn the language, solve Kotlin programming problems, and share their level of expertise on Social Media. They can solve problems on the go and save the incomplete code on Google Drive with just a click. This feature is only available if one logs in with a Google Account.
 
 
